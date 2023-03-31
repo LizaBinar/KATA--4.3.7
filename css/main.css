@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    padding: 48px;
+
+    min-width: 320px;
+    width: 60vw;
+
+    background: #C4C4C4;;
+}

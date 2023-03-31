@@ -1,0 +1,35 @@
+.my-repo {
+}
+
+.my-repo__list {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: lightgreen;
+}
+
+.my-repo__repo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    align-items: center;
+}
+
+.my-repo__repo:nth-child(n+2) {
+    border-top: 1px solid green;
+}
+
+.my-repo__button {
+    width: 40px;
+    height: 40px;
+    background-color: lightgreen;
+    transition: 0.2s;
+}
+
+.my-repo__button:hover {
+    transform: scale(1.3)
+}
+
+
+
