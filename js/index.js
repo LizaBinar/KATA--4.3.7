@@ -32,14 +32,6 @@ function makeSearchOption (value, id) {
     return option;
 }
 
-
-function makeErrorOption (value) {
-    const option = makeSearchOption(value);
-    option.style.color = "red";
-    option.style.height = "100%";
-    return option;
-}
-
 async function getRepos() {
     return await fetch(`https://api.github.com/search/repositories?q=${searchInput.value}&page=1&per_page=${parePageSize}`)
 }
@@ -54,7 +46,7 @@ function generateAndAddRepo(repositories) {
 async function searchInputFunc () {
     let repositories;
     try {
-        if (searchInput.value !== "") {
+        if (searchInput.value !== "" && /\S/.test(searchInput.value)) {
             repositories = await getRepos();
             repositories = await repositories.json();
             generateAndAddRepo(repositories.items);
@@ -63,8 +55,7 @@ async function searchInputFunc () {
         }
     } catch (error) {
         [...searchList.children].forEach(el => el.remove());
-        let optionError = makeErrorOption(String(error));
-        searchList.append(optionError)
+        console.log(error);
     }
 }
 
